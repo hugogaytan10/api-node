@@ -1,0 +1,18 @@
+version: '3'
+services:
+  webnode:
+    container_name: api-node
+    restart: always
+    build: .
+    ports:
+      - "3000:3000"
+    links:
+      - mongo
+    volumes:
+      - .:/index
+
+  mongo:
+    container_name: mongodb
+    image: mongo
+    ports:
+      -"27017:27020"
